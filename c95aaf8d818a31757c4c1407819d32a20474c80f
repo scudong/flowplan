@@ -1,0 +1,1221 @@
+cloud/.wrangler/cache/cf.json
+  876e8ebdf0d76efb 1
+cloud/wrangler.jsonc
+  876e8ebdf0d76efb 1-13
+lib/db-cloud.ts
+  876e8ebdf0d76efb 1-122
+docs/cloudflare-port.md
+  876e8ebdf0d76efb 1-52
+lib/db.ts
+  876e8ebdf0d76efb 15-19,1189-1193,1303-1331
+cloud/spike.ts
+  876e8ebdf0d76efb 1-152
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "c95aaf8d818a31757c4c1407819d32a20474c80f",
+  "prompts": {
+    "876e8ebdf0d76efb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "89427376-645f-4bc2-a5f9-2fd15c3b781c",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": "Gavin",
+      "messages": [],
+      "total_additions": 8588,
+      "total_deletions": 2568,
+      "accepted_lines": 3898981,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        ".next-dev/dev/server/chunks/node_modules_yjs_dist_yjs_mjs_0sjo--k09o8kz._.js": {
+          "accepted_lines": 9264
+        },
+        ".next-dev/dev/server/chunks/lib_1lti1kwm4ek0y._.js": {
+          "accepted_lines": 121
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0l9vbs__xjph7._.js": {
+          "accepted_lines": 4050
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_1nkb8j86066pm._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0oh50jyw-ozt6._.js": {
+          "accepted_lines": 7023
+        },
+        ".next-dev/dev/server/chunks/node_modules_asn1js_build_index_es_0p90qq-vea-o3.js": {
+          "accepted_lines": 3550
+        },
+        ".next-dev/dev/trace": {
+          "accepted_lines": 9
+        },
+        ".next-dev/dev/server/chunks/node_modules_pdf-lib_es_api_0-jjyybngpq75._.js": {
+          "accepted_lines": 11197
+        },
+        "cloud/.wrangler/tmp/bundle-yfxlmn/middleware-insertion-facade.js": {
+          "additions": 11
+        },
+        ".next-dev/dev/server/chunks/lib_00xae_xebevek._.js": {
+          "accepted_lines": 42854
+        },
+        ".next-dev/dev/server/chunks/lib_notification-kinds_ts_0ny9yoo9255zf._.js": {
+          "accepted_lines": 115
+        },
+        ".next-dev/dev/server/chunks/_next-internal_server_app_api_time-reports_route_actions_1wln153sxuqqs.js": {
+          "accepted_lines": 9
+        },
+        ".next-dev/dev/server/chunks/lib_17jo51r-adjde._.js": {
+          "accepted_lines": 72514
+        },
+        ".next-dev/dev/cache/turbopack/v16.4.3-29bbeab0/CURRENT": {
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_fetch_0v3r9301f7j7r._.js": {
+          "accepted_lines": 4366
+        },
+        ".next-dev/dev/server/chunks/lib_05m82bwo8bcjo._.js": {
+          "accepted_lines": 43996
+        },
+        ".next-dev/dev/server/chunks/[externals]__1fgw6k7e70li5._.js": {
+          "accepted_lines": 200
+        },
+        ".next-dev/dev/server/chunks/node_modules_1o06e7xcjpq_z._.js": {
+          "accepted_lines": 10638
+        },
+        ".next-dev/dev/server/chunks/[externals]__1vh2mg5q1m8_w._.js": {
+          "accepted_lines": 254
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0qt703neuztg2._.js": {
+          "accepted_lines": 4032
+        },
+        ".next-dev/dev/server/chunks/node_modules_0w8sx1_ekh6ts._.js": {
+          "accepted_lines": 32295
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_18nzsgymiqzqk._.js": {
+          "accepted_lines": 3969
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_core_dist_16t8f4928jdyn._.js": {
+          "accepted_lines": 8928
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0wvl14u0vb5u5._.js": {
+          "accepted_lines": 4739
+        },
+        ".next-dev/dev/server/server-reference-manifest.json": {
+          "accepted_lines": 5
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_es_languages_0tccmn7i0fi_1._.js": {
+          "accepted_lines": 45969
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0ctl-8hvh2vl9._.js": {
+          "accepted_lines": 4032
+        },
+        ".next-dev/dev/server/chunks/node_modules_pako_09t8p4wel0y3m._.js": {
+          "accepted_lines": 5874
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0z50pf4i4u3_u._.js": {
+          "accepted_lines": 1228
+        },
+        ".next-dev/dev/server/chunks/node_modules_@pdf-lib_standard-fonts_es_1-d3wcmc25_0d._.js": {
+          "accepted_lines": 301
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_y-tiptap_dist_index_1x_iz0c4ag40q.js": {
+          "accepted_lines": 2346
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_asn1-cms_build_es2015_0geao5bkupep7._.js": {
+          "accepted_lines": 1573
+        },
+        ".next-dev/dev/server/chunks/lib_18csw9--ehbjw._.js": {
+          "accepted_lines": 43839
+        },
+        ".next-dev/dev/prerender-manifest.json": {
+          "accepted_lines": 6
+        },
+        ".next-dev/dev/logs/next-development.log": {
+          "accepted_lines": 10
+        },
+        ".next-dev/dev/server/chunks/node_modules_yjs_dist_yjs_mjs_12zeum8pgkjv3._.js": {
+          "accepted_lines": 9264
+        },
+        "cloud/spike.ts": {
+          "additions": 158,
+          "deletions": 6,
+          "accepted_lines": 152
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0-1msuk989psq._.js": {
+          "accepted_lines": 292
+        },
+        ".next-dev/dev/server/chunks/lib_0euvjht-fnoga._.js": {
+          "accepted_lines": 121
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_core_dist_1n254lvh5qba-._.js": {
+          "accepted_lines": 8928
+        },
+        ".next-dev/dev/server/chunks/[externals]_tesseract_024_skw4_czqb.js": {
+          "accepted_lines": 12
+        },
+        ".next-dev/dev/server/chunks/lib_17eig31zmbjxt._.js": {
+          "accepted_lines": 1028
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0_kxby38cf62e._.js": {
+          "accepted_lines": 140
+        },
+        ".next-dev/dev/server/chunks/lib_0_8-4yt6uytqo._.js": {
+          "accepted_lines": 117
+        },
+        ".next-dev/dev/server/app/api/time-reports/route/server-reference-manifest.json": {
+          "accepted_lines": 4
+        },
+        ".next-dev/dev/types/validator.ts": {
+          "accepted_lines": 922
+        },
+        ".next-dev/dev/server/chunks/lib_0ytsfxlvhclep._.js": {
+          "accepted_lines": 30223
+        },
+        ".next-dev/dev/types/root-params.d.ts": {
+          "accepted_lines": 3
+        },
+        ".next-dev/dev/server/chunks/[externals]_pdfjs-dist_legacy_build_pdf_mjs_1mq2xqeuj8nsa._.js": {
+          "accepted_lines": 11
+        },
+        ".next-dev/dev/server/interception-route-rewrite-manifest.js": {
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/node_modules_@js-temporal_polyfill_dist_index_esm_0knik2arkxy-x.js": {
+          "accepted_lines": 6104
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__00cfedkz_cy3a._.js": {
+          "accepted_lines": 397
+        },
+        ".next-dev/dev/server/instrumentation/middleware-manifest.json": {
+          "accepted_lines": 12
+        },
+        ".next-dev/dev/server/chunks/node_modules_1-zntnpe5ujdy._.js": {
+          "accepted_lines": 2513
+        },
+        ".next-dev/dev/server/chunks/node_modules_next_0xzalcgja5kmb._.js": {
+          "accepted_lines": 21137
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0p4tsmf8rsyju._.js": {
+          "accepted_lines": 8959
+        },
+        ".next-dev/dev/server/chunks/node_modules_readable-stream_lib_11xtba2ucp6s3._.js": {
+          "accepted_lines": 6039
+        },
+        ".next-dev/dev/server/chunks/lib_ai_0wqk0l1w_vc_r._.js": {
+          "accepted_lines": 3139
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_15x7nzk5vdgp4._.js": {
+          "accepted_lines": 4050
+        },
+        ".next-dev/dev/server/chunks/node_modules_aws4fetch_dist_aws4fetch_esm_mjs_0fm15znzg2how._.js": {
+          "accepted_lines": 357
+        },
+        ".next-dev/dev/server/chunks/lib_19ljpi_41bw20._.js": {
+          "accepted_lines": 44177
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0b9zhstf6noy1._.js": {
+          "accepted_lines": 4032
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_core_dist_19kcb2h_txwb3._.js": {
+          "accepted_lines": 8928
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_svg_2177h6rbpschh._.js": {
+          "accepted_lines": 4413
+        },
+        ".next-dev/dev/server/app/api/time-reports/route_client-reference-manifest.js": {
+          "accepted_lines": 3
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_08_uh3rw85-x9._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/node_modules_1ce9m73q8lkuf._.js": {
+          "accepted_lines": 24411
+        },
+        ".next-dev/dev/server/chunks/lib_ai_0zfeqswj0fucl._.js": {
+          "accepted_lines": 3139
+        },
+        ".next-dev/dev/server/chunks/lib_0wihkkfl16d4a._.js": {
+          "accepted_lines": 228
+        },
+        ".next-dev/dev/server/chunks/node_modules_next_0-234e156334t._.js": {
+          "accepted_lines": 15401
+        },
+        ".next-dev/dev/server/chunks/lib_1opdspj44vak-._.js": {
+          "accepted_lines": 72514
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_1y4rktutvgqy9._.js": {
+          "accepted_lines": 3951
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_1kpdrcwwmgskj._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_asn1-x509_build_es2015_1w_2gghrkse5e._.js": {
+          "accepted_lines": 2640
+        },
+        ".next-dev/dev/server/chunks/lib_059l_zhfomp2d._.js": {
+          "accepted_lines": 42739
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0v5v-s2wdfmah._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/node_modules_prosemirror-view_dist_index_0vf0cw5odiv5q.js": {
+          "accepted_lines": 5403
+        },
+        ".next-dev/dev/server/preview-props.json": {
+          "accepted_lines": 5
+        },
+        ".next-dev/dev/server/chunks/lib_1al-opbkycgt8._.js": {
+          "accepted_lines": 74301
+        },
+        ".next-dev/dev/server/chunks/node_modules_0lo1bb7hpv2_7._.js": {
+          "accepted_lines": 31036
+        },
+        ".next-dev/dev/server/chunks/node_modules_0japjjdntd7o9._.js": {
+          "accepted_lines": 8161
+        },
+        ".next-dev/dev/server/chunks/lib_00swmw4h3-h3w._.js": {
+          "accepted_lines": 42450
+        },
+        ".next-dev/dev/server/chunks/lib_0j22sx75mjayo._.js": {
+          "accepted_lines": 177
+        },
+        ".next-dev/dev/server/chunks/node_modules_0lf_u7gj2cv2j._.js": {
+          "accepted_lines": 31036
+        },
+        ".next-dev/dev/server/chunks/node_modules_1xwesieorc3e6._.js": {
+          "accepted_lines": 18333
+        },
+        ".next-dev/dev/server/chunks/node_modules_0d4jq4eqh7hd2._.js": {
+          "accepted_lines": 24411
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0n_btim9im1ee._.js": {
+          "accepted_lines": 5226
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_dom_14p5r1wmt3v4b._.js": {
+          "accepted_lines": 2364
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_nodes_element_12jvi633ablm_._.js": {
+          "accepted_lines": 1878
+        },
+        ".next-dev/dev/server/chunks/node_modules_prosemirror-view_dist_index_1dhruu52i2sow.js": {
+          "accepted_lines": 5403
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0l-2_0arqfefg._.js": {
+          "accepted_lines": 74
+        },
+        ".next-dev/dev/server/chunks/node_modules_pdf-lib_es_api_0kvs-_9wl5vzr._.js": {
+          "accepted_lines": 11197
+        },
+        "cloud/.wrangler/tmp/dev-VdQX9N/spike.js": {
+          "additions": 3015,
+          "deletions": 1762
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__03uhsgoc73fc6._.js": {
+          "accepted_lines": 42
+        },
+        ".next-dev/dev/server/chunks/node_modules_1i97vz1bvl_bt._.js": {
+          "accepted_lines": 2513
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_es_languages_mathematica_1kyqjgyekjhh_.js": {
+          "accepted_lines": 7354
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_fetch_0dqhk7vpr7qha._.js": {
+          "accepted_lines": 4366
+        },
+        ".next-dev/dev/server/chunks/lib_notification-prefs_ts_0m6yjwg8ou3uh._.js": {
+          "accepted_lines": 113
+        },
+        ".next-dev/dev/server/chunks/[externals]__06ggtlm1-0p28._.js": {
+          "accepted_lines": 272
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_lib_core_1d24vxwuad8rg.js": {
+          "accepted_lines": 2212
+        },
+        "cloud/.wrangler/tmp/bundle-o5FKoW/middleware-insertion-facade.js": {
+          "additions": 11
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__03fduz4fv-egn._.js": {
+          "accepted_lines": 7005
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_dom_1pwiumb2ysgje._.js": {
+          "accepted_lines": 2364
+        },
+        ".next-dev/dev/server/chunks/lib_1j54kem5js2zk._.js": {
+          "accepted_lines": 43554
+        },
+        ".next-dev/dev/server/chunks/lib_importers_1g7ol4r6vly-z._.js": {
+          "accepted_lines": 34
+        },
+        "cloud/.wrangler/tmp/bundle-1Q2PMc/middleware-loader.entry.ts": {
+          "additions": 134
+        },
+        ".next-dev/dev/server/chunks/lib_1rya1-bgjvn4-._.js": {
+          "accepted_lines": 75271
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0jgs-z629127s._.js": {
+          "accepted_lines": 9008
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_nodes_document_01-u_wvfs15pq._.js": {
+          "accepted_lines": 1676
+        },
+        ".next-dev/dev/build-manifest.json": {
+          "accepted_lines": 15
+        },
+        ".next-dev/dev/server/chunks/[externals]_postcss_11es5v0o6tz3r._.js": {
+          "accepted_lines": 8
+        },
+        ".next-dev/dev/server/chunks/node_modules_next_0_sev9p2hghvx._.js": {
+          "accepted_lines": 3733
+        },
+        ".next-dev/dev/server/chunks/[externals]__0hrz2l8e5v3_p._.js": {
+          "accepted_lines": 266
+        },
+        ".next-dev/dev/server/chunks/instrumentation_ts_1oq3o45biku4v._.js": {
+          "accepted_lines": 72
+        },
+        ".next-dev/dev/server/chunks/node_modules_0rbkzqkij639n._.js": {
+          "accepted_lines": 31036
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_asn1-cms_build_es2015_0ndspbnpie_pu._.js": {
+          "accepted_lines": 1573
+        },
+        ".next-dev/dev/server/chunks/node_modules_lib0_02dp05zpwf7vn._.js": {
+          "accepted_lines": 4669
+        },
+        ".next-dev/dev/server/chunks/[externals]__0us6m7mcde7_o._.js": {
+          "accepted_lines": 248
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_core_0npuellvcs34k._.js": {
+          "accepted_lines": 12040
+        },
+        "next-env.d.ts": {
+          "accepted_lines": 2
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_locales_0on3-qho2_wkm._.js": {
+          "accepted_lines": 9372
+        },
+        ".next-dev/dev/server/chunks/node_modules_pako_0sq7o74894wp4._.js": {
+          "accepted_lines": 5874
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__201437slbiz5t._.js": {
+          "accepted_lines": 4739
+        },
+        ".next-dev/dev/server/chunks/lib_153zu4axwax3w._.js": {
+          "accepted_lines": 45430
+        },
+        ".next-dev/dev/server/chunks/lib_1e_4pr8w8q7-0._.js": {
+          "accepted_lines": 74424
+        },
+        ".next-dev/dev/server/chunks/node_modules_0caqjqy7ntyd6._.js": {
+          "accepted_lines": 2513
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_1aop7kharsdbp._.js": {
+          "accepted_lines": 6400
+        },
+        "cloud/.wrangler/tmp/bundle-yfxlmn/middleware-loader.entry.ts": {
+          "additions": 134
+        },
+        ".next-dev/dev/server/chunks/[externals]__1tbq5nlfr84hf._.js": {
+          "accepted_lines": 248
+        },
+        ".next-dev/dev/server/chunks/lib_0ulqwnh3mzzr0._.js": {
+          "accepted_lines": 43492
+        },
+        "cloud/.wrangler/tmp/bundle-xh6syz/middleware-loader.entry.ts": {
+          "additions": 134
+        },
+        ".next-dev/dev/routes-manifest.json": {
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_css_1q1af07wjjqpa._.js": {
+          "accepted_lines": 8597
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_range_1wi0bxu1zw_0l._.js": {
+          "accepted_lines": 890
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_nodes_0bheafvwco2g2._.js": {
+          "accepted_lines": 22154
+        },
+        ".next-dev/dev/server/chunks/node_modules_pdf-lib_es_core_0m4q3qwmne8w4._.js": {
+          "accepted_lines": 10296
+        },
+        ".next-dev/dev/server/chunks/node_modules_highlight_1764ep1p8eww1.js": {
+          "accepted_lines": 2222
+        },
+        ".next-dev/dev/server/app/api/time-reports/route/app-paths-manifest.json": {
+          "accepted_lines": 3
+        },
+        ".next-dev/dev/server/chunks/node_modules_1dr7pinzk9fgv._.js": {
+          "accepted_lines": 31036
+        },
+        ".next-dev/dev/server/chunks/lib_0scepv4_ogkcm._.js": {
+          "accepted_lines": 72944
+        },
+        ".next-dev/dev/server/chunks/[externals]__0tuo7pbs9-w0r._.js": {
+          "accepted_lines": 248
+        },
+        ".next-dev/dev/server/chunks/[externals]__1j5b7bk7isfei._.js": {
+          "accepted_lines": 26
+        },
+        ".next-dev/dev/server/chunks/node_modules_readable-stream_lib_0j2wigycgirbt._.js": {
+          "accepted_lines": 6039
+        },
+        ".next-dev/dev/static/development/_buildManifest.js": {
+          "accepted_lines": 11
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0vq50jrohd258._.js": {
+          "accepted_lines": 4050
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_1lrq52wqthdqt._.js": {
+          "accepted_lines": 7535
+        },
+        ".next-dev/dev/server/chunks/app_api_time-reports_route_ts_14if-hv059x_t._.js": {
+          "accepted_lines": 97
+        },
+        "cloud/.wrangler/tmp/bundle-xh6syz/middleware-insertion-facade.js": {
+          "additions": 11
+        },
+        ".next-dev/dev/server/chunks/node_modules_isomorphic-git_09k2p88i_w4dm._.js": {
+          "accepted_lines": 17360
+        },
+        ".next-dev/dev/server/chunks/lib_1udfc96nl3i99._.js": {
+          "accepted_lines": 43880
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_y-tiptap_dist_index_0rkso8tm84_x6.js": {
+          "accepted_lines": 2346
+        },
+        ".next-dev/dev/server/edge/chunks/turbopack-node_modules_next_dist_esm_build_templates_edge-wrapper_17631zegskmap.js": {
+          "accepted_lines": 2446
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_120zjz1l4bxkw._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/node_modules_ws_1chdmhwij_yxj._.js": {
+          "accepted_lines": 4058
+        },
+        ".next-dev/dev/server/chunks/lib_1rtl4zstdpwvp._.js": {
+          "accepted_lines": 1434
+        },
+        "cloud/.wrangler/tmp/dev-h1II0p/spike.js": {
+          "additions": 1127
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_x509_build_x509_es_0dypu2tc_hbuf.js": {
+          "accepted_lines": 3731
+        },
+        ".next-dev/dev/server/chunks/lib_0r5bcl69wy62t._.js": {
+          "accepted_lines": 42450
+        },
+        ".next-dev/dev/server/chunks/node_modules_pdf-lib_es_core_0dbqmv43ax9xc._.js": {
+          "accepted_lines": 10296
+        },
+        ".next-dev/dev/server/chunks/lib_1km67fpwyk4i5._.js": {
+          "accepted_lines": 282
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_1k90g0u7adfo_._.js": {
+          "accepted_lines": 6400
+        },
+        ".next-dev/dev/server/chunks/lib_0_oboxncbpb67._.js": {
+          "accepted_lines": 276
+        },
+        ".next-dev/dev/server/chunks/node_modules_nodemailer_dist_esm_0xqcsnqdagzf-._.js": {
+          "accepted_lines": 22800
+        },
+        ".next-dev/dev/server/chunks/[externals]__04w1u_f130rot._.js": {
+          "accepted_lines": 248
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0pqwndgu980cb._.js": {
+          "accepted_lines": 286
+        },
+        ".next-dev/dev/server/chunks/node_modules_1d5d6pd36f025._.js": {
+          "accepted_lines": 42900
+        },
+        ".next-dev/dev/server/chunks/node_modules_emojibase-data_en_data_json_[json]_cjs_0ys0hyj56qkgi._.js": {
+          "accepted_lines": 8
+        },
+        ".next-dev/dev/server/pages-manifest.json": {
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/lib_1m2x-je1oidn8._.js": {
+          "accepted_lines": 75394
+        },
+        ".next-dev/dev/server/app/api/time-reports/route/build-manifest.json": {
+          "accepted_lines": 12
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_es_languages_0j2wk2ha-al81._.js": {
+          "accepted_lines": 45969
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_0tcxvjdfprtka._.js": {
+          "accepted_lines": 6400
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0mnsof3h6rmk9._.js": {
+          "accepted_lines": 3897
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_nodes_1i8kssywwcxmq._.js": {
+          "accepted_lines": 22154
+        },
+        ".next-dev/dev/server/chunks/lib_ai_14wjydvjkm0_5._.js": {
+          "accepted_lines": 3294
+        },
+        ".next-dev/dev/server/chunks/node_modules_@simplewebauthn_server_esm_0anv4bmjfisz7._.js": {
+          "accepted_lines": 5386
+        },
+        ".next-dev/dev/cache/turbopack/v16.4.3-29bbeab0/LOG": {
+          "accepted_lines": 121
+        },
+        ".next-dev/dev/server/chunks/node_modules_1uafi1emvgzro._.js": {
+          "accepted_lines": 7808
+        },
+        ".next-dev/dev/server/chunks/node_modules_0yx3q_-_ne01_._.js": {
+          "accepted_lines": 32295
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_es_core_20lxxwkd_ak47.js": {
+          "accepted_lines": 17
+        },
+        "cloud/.wrangler/tmp/dev-0hj4rh/spike.js": {
+          "additions": 1253
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_1_b-34up92zi6._.js": {
+          "accepted_lines": 3897
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_040oi8bpjktpk._.js": {
+          "accepted_lines": 3897
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_es_core_1d-pvdjp-jsvt.js": {
+          "accepted_lines": 17
+        },
+        ".next-dev/dev/server/chunks/node_modules_prosemirror-view_dist_index_0-vucauajgtt8.js": {
+          "accepted_lines": 5403
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_196m1v0-obcs0._.js": {
+          "accepted_lines": 7535
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_001fvic12e208._.js": {
+          "accepted_lines": 4050
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_dom_0nitrmuzt7z5x._.js": {
+          "accepted_lines": 2364
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_1h-eq1zms8_yo._.js": {
+          "accepted_lines": 18710
+        },
+        ".next-dev/dev/server/chunks/node_modules_lib0_0bugg9e8mqa_e._.js": {
+          "accepted_lines": 4669
+        },
+        ".next-dev/dev/server/chunks/node_modules_03vueap8c2fr_._.js": {
+          "accepted_lines": 49345
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_045jzuzgvh_73._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/next-font-manifest.js": {
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_css_0x79g938nh2hr._.js": {
+          "accepted_lines": 8597
+        },
+        ".next-dev/dev/server/app-paths-manifest.json": {
+          "accepted_lines": 3
+        },
+        ".next-dev/dev/server/chunks/[externals]__047kqpisb7tvy._.js": {
+          "accepted_lines": 188
+        },
+        ".i18n-templates-zh-progress.json": {
+          "accepted_lines": 390
+        },
+        ".next-dev/dev/server/chunks/node_modules_@pdf-lib_standard-fonts_es_11um69whtl1cy._.js": {
+          "accepted_lines": 301
+        },
+        ".next-dev/dev/server/chunks/node_modules_1sxf3dmw_s-rw._.js": {
+          "accepted_lines": 41641
+        },
+        ".next-dev/dev/server/chunks/node_modules_yjs_dist_yjs_mjs_1quzeh0uj3n5c._.js": {
+          "accepted_lines": 9264
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_1kl7do1q18fkc._.js": {
+          "accepted_lines": 7535
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_asn1-x509_build_es2015_01ryxqg5efkja._.js": {
+          "accepted_lines": 2640
+        },
+        ".next-dev/dev/types/routes.d.ts": {
+          "accepted_lines": 152
+        },
+        ".i18n-zh-progress.json": {
+          "accepted_lines": 1935
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_window_05ndk4bci2di4._.js": {
+          "accepted_lines": 3637
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0pjf468divmz1._.js": {
+          "accepted_lines": 5047
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_1718oiqjmtg9u._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/node_modules_nodemailer_dist_esm_0kykdsqe2gavx._.js": {
+          "accepted_lines": 22800
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0bs2j7ze3aqbi._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/lib_ai_1t-_huo-s-udg._.js": {
+          "accepted_lines": 3883
+        },
+        ".next-dev/dev/server/chunks/lib_0bbls10ll1o99._.js": {
+          "accepted_lines": 42566
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0k_spum772ufu._.js": {
+          "accepted_lines": 3951
+        },
+        ".next-dev/dev/fallback-build-manifest.json": {
+          "accepted_lines": 15
+        },
+        ".next-dev/dev/server/chunks/node_modules_@pdf-lib_standard-fonts_es_1gzr7b4vc5f_o._.js": {
+          "accepted_lines": 301
+        },
+        ".next-dev/dev/server/chunks/lib_1j2jmhbim-sh2._.js": {
+          "accepted_lines": 43775
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_cookie_1cg2v7xj5y7uh._.js": {
+          "accepted_lines": 10698
+        },
+        ".next-dev/dev/server/chunks/node_modules_@simplewebauthn_server_esm_0c8qbl7xmpsm7._.js": {
+          "accepted_lines": 5386
+        },
+        ".next-dev/dev/server/chunks/node_modules_0_w7mxm1c5a1e._.js": {
+          "accepted_lines": 2513
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_es_core_017zb6nb_lk4z.js": {
+          "accepted_lines": 17
+        },
+        ".next-dev/dev/server/middleware/middleware-manifest.json": {
+          "accepted_lines": 6
+        },
+        ".next-dev/dev/server/chunks/node_modules_04go4pro6kvln._.js": {
+          "accepted_lines": 31036
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_range_178mgosuhhql-._.js": {
+          "accepted_lines": 890
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_window_0-sqf26tk7qvp._.js": {
+          "accepted_lines": 3637
+        },
+        ".next-dev/dev/server/chunks/lib_ai_1if0h7u3sm34f._.js": {
+          "accepted_lines": 3294
+        },
+        ".next-dev/dev/server/chunks/[externals]__203nvxla8xg6x._.js": {
+          "accepted_lines": 260
+        },
+        ".next-dev/dev/server/chunks/[externals]__06830vgqd8h56._.js": {
+          "accepted_lines": 200
+        },
+        ".next-dev/dev/server/chunks/[externals]__1xf5ivminway8._.js": {
+          "accepted_lines": 248
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_nodes_document_0e00zquulasv3._.js": {
+          "accepted_lines": 1676
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_1dv0izq_9s-r5._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/node_modules_emojibase-data_de_1qum80f5gwq-5._.js": {
+          "accepted_lines": 594
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_05swh-yxr_zgy._.js": {
+          "accepted_lines": 4032
+        },
+        ".next-dev/dev/server/chunks/node_modules_pdf-lib_es_core_0qu8t9gzk3063._.js": {
+          "accepted_lines": 10296
+        },
+        ".next-dev/dev/server/middleware.js": {
+          "accepted_lines": 6
+        },
+        ".next-dev/dev/package.json": {
+          "accepted_lines": 3
+        },
+        ".next-dev/dev/server/server-reference-manifest.js": {
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_09ir-gs6r9ifg._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/[externals]__05k5qrzqxz_ng._.js": {
+          "accepted_lines": 260
+        },
+        ".next-dev/dev/server/chunks/node_modules_emojibase-data_en_data_json_[json]_cjs_0-3v4om58jzqj._.js": {
+          "accepted_lines": 8
+        },
+        ".next-dev/dev/server/chunks/lib_0-ymbaayy9924._.js": {
+          "accepted_lines": 34
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0atu1mruieazt._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_0u7rq_5yo5mdj._.js": {
+          "accepted_lines": 18710
+        },
+        ".next-dev/dev/server/chunks/lib_04awkh81k7czm._.js": {
+          "accepted_lines": 44328
+        },
+        ".next-dev/dev/server/chunks/node_modules_lib0_021cykm5ely0h._.js": {
+          "accepted_lines": 4669
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0ihtzts59ycgb._.js": {
+          "accepted_lines": 4776
+        },
+        ".next-dev/dev/server/chunks/node_modules_pdf-lib_es_api_1xwc4c0zoj8ai._.js": {
+          "accepted_lines": 11197
+        },
+        ".next-dev/dev/server/chunks/node_modules_pako_0t-fj33rc1b0j._.js": {
+          "accepted_lines": 5874
+        },
+        ".next-dev/dev/server/chunks/node_modules_asn1js_build_index_es_101oq_owdxwzm.js": {
+          "accepted_lines": 3550
+        },
+        ".next-dev/dev/server/chunks/node_modules_1ciu76iz9tnur._.js": {
+          "accepted_lines": 42900
+        },
+        ".next-dev/dev/server/chunks/lib_0fu03wlzsjxf5._.js": {
+          "accepted_lines": 79479
+        },
+        ".next-dev/dev/server/chunks/[externals]_tesseract_1pwe_ea3cmnx4.js": {
+          "accepted_lines": 8
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_lib_core_15t9gm_nih83s.js": {
+          "accepted_lines": 2212
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_1pkg0u8htr_9a._.js": {
+          "accepted_lines": 6400
+        },
+        ".next-dev/dev/server/chunks/node_modules_asn1js_build_index_es_0_jco6d5vyk_r.js": {
+          "accepted_lines": 3550
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0erq3c_m06n84._.js": {
+          "accepted_lines": 4032
+        },
+        ".next-dev/dev/server/chunks/lib_1-a_s2uz5j2-q._.js": {
+          "accepted_lines": 43292
+        },
+        ".next-dev/dev/server/chunks/node_modules_1b2ord8rdqgbj._.js": {
+          "accepted_lines": 1618
+        },
+        ".next-dev/dev/server/chunks/[externals]__07h4b_ifls85d._.js": {
+          "accepted_lines": 188
+        },
+        ".next-dev/dev/server/chunks/[externals]__0r04xypb3csaq._.js": {
+          "accepted_lines": 260
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_x509_build_x509_es_00q5a4_he29tn.js": {
+          "accepted_lines": 3731
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_fetch_0qlvyxctv285_._.js": {
+          "accepted_lines": 4366
+        },
+        "cloud/.wrangler/tmp/dev-i38c7W/spike.js": {
+          "additions": 2217,
+          "deletions": 789
+        },
+        ".next-dev/dev/server/chunks/node_modules_readable-stream_lib_1b32bryop53r2._.js": {
+          "accepted_lines": 6039
+        },
+        "cloud/.wrangler/tmp/bundle-1Q2PMc/middleware-insertion-facade.js": {
+          "additions": 11
+        },
+        "tsconfig.json": {
+          "accepted_lines": 5
+        },
+        "cloud/wrangler.jsonc": {
+          "additions": 13,
+          "accepted_lines": 13
+        },
+        ".next-dev/dev/server/chunks/lib_1j4qcd0q-pbcb._.js": {
+          "accepted_lines": 32665
+        },
+        ".next-dev/dev/server/chunks/node_modules_01jwm5achmmps._.js": {
+          "accepted_lines": 1618
+        },
+        ".next-dev/dev/server/chunks/node_modules_isomorphic-git_0z97by8hk5d-d._.js": {
+          "accepted_lines": 17360
+        },
+        ".next-dev/dev/server/middleware-manifest.json": {
+          "accepted_lines": 6
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_range_1z5-p4zrqvvu_._.js": {
+          "accepted_lines": 890
+        },
+        ".next-dev/dev/static/development/_ssgManifest.js": {
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/lib_108beh35sztug._.js": {
+          "accepted_lines": 92
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_svg_1jqko4ib1324l._.js": {
+          "accepted_lines": 4413
+        },
+        ".next-dev/dev/server/chunks/[externals]__0pdnlv9-kx93g._.js": {
+          "accepted_lines": 248
+        },
+        ".next-dev/dev/server/chunks/node_modules_pdf-lib_es_0nf6lneboyjqi._.js": {
+          "accepted_lines": 1181
+        },
+        ".next-dev/dev/server/chunks/node_modules_@simplewebauthn_server_esm_1_1hmcu5u0x32._.js": {
+          "accepted_lines": 5386
+        },
+        ".next-dev/dev/server/chunks/lib_ai_000r8-11mjn_c._.js": {
+          "accepted_lines": 3294
+        },
+        ".next-dev/dev/server/edge/chunks/_0o_tvsklgn-yk._.js": {
+          "accepted_lines": 40
+        },
+        ".next-dev/dev/server/chunks/lib_ai_20d_h6hfp_rys._.js": {
+          "accepted_lines": 3633
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__1zxu4efiuwhyo._.js": {
+          "accepted_lines": 4776
+        },
+        ".next-dev/dev/server/chunks/node_modules_emojibase-data_en_data_json_[json]_cjs_1bfdoi38k6rbv._.js": {
+          "accepted_lines": 8
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_11gxpe8ozjnrr._.js": {
+          "accepted_lines": 4032
+        },
+        "cloud/.wrangler/cache/cf.json": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/lib_0ja0w2xw8gl42._.js": {
+          "accepted_lines": 195
+        },
+        ".next-dev/dev/server/chunks/node_modules_1dbq8-nm68r_6._.js": {
+          "accepted_lines": 33626
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_1-wcobhzstjmc._.js": {
+          "accepted_lines": 6400
+        },
+        ".next-dev/dev/server/chunks/[externals]_node_crypto_1kn79-7xl4-5u._.js": {
+          "accepted_lines": 8
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_es_languages_1os_dcz6y892u._.js": {
+          "accepted_lines": 45969
+        },
+        ".next-dev/dev/server/chunks/[externals]__1d8sfvr5-o7g1._.js": {
+          "accepted_lines": 188
+        },
+        ".next-dev/dev/server/chunks/node_modules_0na3vauss_ngg._.js": {
+          "accepted_lines": 41641
+        },
+        ".next-dev/dev/server/chunks/node_modules_0_ncm5gheqg8v._.js": {
+          "accepted_lines": 9420
+        },
+        ".next-dev/dev/server/chunks/node_modules_1vu5mted4yjks._.js": {
+          "accepted_lines": 50604
+        },
+        ".next-dev/dev/server/chunks/node_modules_@js-temporal_polyfill_dist_index_esm_0ce9-rukq_jz8.js": {
+          "accepted_lines": 6104
+        },
+        ".next-dev/dev/server/chunks/lib_0o8gckrdvmifg._.js": {
+          "accepted_lines": 36750
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_asn1-x509_build_es2015_0170lrdhd9u0n._.js": {
+          "accepted_lines": 2640
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_cookie_0dmfqh5y0pckh._.js": {
+          "accepted_lines": 10698
+        },
+        "lib/db-cloud.ts": {
+          "additions": 133,
+          "deletions": 11,
+          "accepted_lines": 122
+        },
+        ".next-dev/dev/server/app/api/time-reports/route.js": {
+          "accepted_lines": 48
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_nodes_13aep17xe5jsf._.js": {
+          "accepted_lines": 22154
+        },
+        "lib/db.ts": {
+          "additions": 39,
+          "accepted_lines": 39
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_nodes_document_0p9bcxogg9f2l._.js": {
+          "accepted_lines": 1676
+        },
+        ".next-dev/dev/server/chunks/lib_1vr5p5df7ovva._.js": {
+          "accepted_lines": 42831
+        },
+        ".next-dev/dev/server/chunks/node_modules_1fo7ajpvo5vej._.js": {
+          "accepted_lines": 2513
+        },
+        ".next-dev/dev/server/chunks/locales_fr_json_[json]_mjs_210ep7zhijfzu._.js": {
+          "accepted_lines": 14
+        },
+        ".next-dev/dev/server/chunks/node_modules_highlight_0q61yvedjmtun.js": {
+          "accepted_lines": 2222
+        },
+        ".next-dev/dev/server/chunks/node_modules_104x5713ilb5r._.js": {
+          "accepted_lines": 41641
+        },
+        "cloud/.wrangler/tmp/bundle-o5FKoW/middleware-loader.entry.ts": {
+          "additions": 134
+        },
+        ".next-dev/dev/server/chunks/node_modules_12lkbu29xc_ig._.js": {
+          "accepted_lines": 31036
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_1acetzw67ut9_._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/cache/.rscinfo": {
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_lib_core_1z1zw4p32bmrk.js": {
+          "accepted_lines": 2212
+        },
+        ".next-dev/dev/server/instrumentation.js": {
+          "accepted_lines": 5
+        },
+        ".next-dev/dev/lock": {
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0yx8h30hv9kh-._.js": {
+          "accepted_lines": 3906
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_core_0yfsh0dphquad._.js": {
+          "accepted_lines": 12040
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0sgn_29ihk8ah._.js": {
+          "accepted_lines": 612
+        },
+        ".next-dev/dev/server/chunks/[externals]_node_fs_1t1l-4-zroh_0._.js": {
+          "accepted_lines": 8
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_03fy-f0q5__us._.js": {
+          "accepted_lines": 18710
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__19g5eijrpj__w._.js": {
+          "accepted_lines": 231
+        },
+        ".next-dev/dev/server/chunks/node_modules_@js-temporal_polyfill_dist_index_esm_0bgn0px4fmkyv.js": {
+          "accepted_lines": 6104
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__13vr1lhqcsw6g._.js": {
+          "accepted_lines": 152
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_window_1ard5kf5lpsw0._.js": {
+          "accepted_lines": 3637
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__0hm4jzoe9rujp._.js": {
+          "accepted_lines": 164
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_1lko46e3d_ujr._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/node_modules_lib0_1wf_-bypkgl8-._.js": {
+          "accepted_lines": 4669
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0bnqf51b28mbd._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/node_modules_nodemailer_dist_esm_1evt867dcqw33._.js": {
+          "accepted_lines": 22800
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_locales_0tk8ktfwg79qk._.js": {
+          "accepted_lines": 9372
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_036vs9-2kdrfj._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/node_modules_pdf-lib_es_0ehgpzw4d1lr-._.js": {
+          "accepted_lines": 1181
+        },
+        "docs/cloudflare-port.md": {
+          "additions": 52,
+          "accepted_lines": 52
+        },
+        ".next-dev/dev/server/chunks/node_modules_15a0byz5y0o1-._.js": {
+          "accepted_lines": 10620
+        },
+        ".next-dev/dev/server/middleware-build-manifest.js": {
+          "accepted_lines": 15
+        },
+        ".next-dev/dev/server/chunks/lib_api_ts_14__y94l56qqv._.js": {
+          "accepted_lines": 2686
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_css_1hht-v9cl-k5j._.js": {
+          "accepted_lines": 8597
+        },
+        ".next-dev/dev/server/chunks/node_modules_ws_1db6o6buw4jf9._.js": {
+          "accepted_lines": 4058
+        },
+        ".next-dev/dev/server/chunks/lib_api_ts_0_x_7xdhtlas0._.js": {
+          "accepted_lines": 2686
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_es_languages_mathematica_1rr05xe1oziiy.js": {
+          "accepted_lines": 7354
+        },
+        ".next-dev/dev/server/chunks/node_modules_pdf-lib_es_1jvtnxu2dzarg._.js": {
+          "accepted_lines": 1181
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__1iii_w-v8ennr._.js": {
+          "accepted_lines": 5090
+        },
+        ".next-dev/dev/server/chunks/node_modules_emojibase-data_de_19_z4ldxze0yi._.js": {
+          "accepted_lines": 594
+        },
+        ".next-dev/dev/server/chunks/[externals]__13a8rosymzs8c._.js": {
+          "accepted_lines": 212
+        },
+        ".next-dev/dev/server/chunks/node_modules_18wjtdnmmjxiv._.js": {
+          "accepted_lines": 42909
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_cookie_0rq_r3blrayzy._.js": {
+          "accepted_lines": 10698
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_1m8xnchi_u1bb._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/lib_05-uqzrnf3osq._.js": {
+          "accepted_lines": 72514
+        },
+        ".next-dev/dev/server/chunks/lib_154c3g0uqm671._.js": {
+          "accepted_lines": 79356
+        },
+        ".next-dev/dev/server/chunks/[turbopack]_runtime.js": {
+          "accepted_lines": 1959
+        },
+        ".next-dev/dev/server/chunks/lib_08s6q1882s137._.js": {
+          "accepted_lines": 43174
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_nodes_element_1keuy72rlrl5c._.js": {
+          "accepted_lines": 1878
+        },
+        ".next-dev/dev/server/chunks/lib_1f82cj-8uhqul._.js": {
+          "accepted_lines": 221
+        },
+        ".next-dev/dev/server/chunks/node_modules_emojibase-data_de_0tzvosjl_9c5z._.js": {
+          "accepted_lines": 594
+        },
+        ".next-dev/dev/server/next-font-manifest.json": {
+          "accepted_lines": 6
+        },
+        ".next-dev/dev/server/chunks/_040kub4avkp6e._.js": {
+          "accepted_lines": 881
+        },
+        ".next-dev/dev/static/development/_clientMiddlewareManifest.js": {
+          "accepted_lines": 1
+        },
+        ".next-dev/dev/server/chunks/[externals]__0nf99hqyw2sob._.js": {
+          "accepted_lines": 260
+        },
+        ".next-dev/dev/server/chunks/lib_notification-kinds_ts_1y51sgqv4og78._.js": {
+          "accepted_lines": 115
+        },
+        ".next-dev/dev/server/chunks/lib_20lbt4x_yzsh1._.js": {
+          "accepted_lines": 60
+        },
+        ".next-dev/dev/server/chunks/lib_125a60ce_-s-g._.js": {
+          "accepted_lines": 129
+        },
+        ".next-dev/dev/server/chunks/lib_1nvx2f6x2mklr._.js": {
+          "accepted_lines": 42450
+        },
+        ".next-dev/dev/server/chunks/node_modules_@tiptap_y-tiptap_dist_index_0eb3sgzjqyf6f.js": {
+          "accepted_lines": 2346
+        },
+        ".next-dev/dev/server/chunks/node_modules_ws_0qax1g5-9fi2h._.js": {
+          "accepted_lines": 4058
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_core_1y4fzn5_0q6_o._.js": {
+          "accepted_lines": 12040
+        },
+        ".next-dev/dev/server/chunks/[externals]__10toy87u23rni._.js": {
+          "accepted_lines": 188
+        },
+        ".next-dev/dev/server/chunks/lib_12wyr9zep0lqg._.js": {
+          "accepted_lines": 42450
+        },
+        ".next-dev/dev/server/chunks/lib_02p1vwqcqoqpv._.js": {
+          "accepted_lines": 72391
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__1xe23z0n2ahhy._.js": {
+          "accepted_lines": 6978
+        },
+        ".next-dev/dev/server/chunks/0-q8_highlight_js_es_languages_mathematica_12f91zbhjkkrr.js": {
+          "accepted_lines": 7354
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0ugbq4iefq-n7._.js": {
+          "accepted_lines": 4032
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_02xs-rjh6dofv._.js": {
+          "accepted_lines": 4023
+        },
+        ".next-dev/dev/server/chunks/lib_0wd4cqea9q_-2._.js": {
+          "accepted_lines": 32133
+        },
+        ".next-dev/dev/server/chunks/[root-of-the-server]__08td28lf86g9m._.js": {
+          "accepted_lines": 4774
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_locales_1romanlsjtdpc._.js": {
+          "accepted_lines": 9372
+        },
+        ".next-dev/dev/server/chunks/lib_1k5stgeksiz15._.js": {
+          "accepted_lines": 42755
+        },
+        ".next-dev/dev/server/chunks/locales_zh_json_[json]_mjs_1oma9qrkzuux9._.js": {
+          "accepted_lines": 14
+        },
+        ".next-dev/dev/server/chunks/node_modules_1vj8rcmcm5jii._.js": {
+          "accepted_lines": 1517
+        },
+        ".next-dev/dev/server/chunks/lib_ai_0121we7bggfbx._.js": {
+          "accepted_lines": 3294
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_asn1-cms_build_es2015_1nsnwjxg3sjhc._.js": {
+          "accepted_lines": 1573
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0syq590ur5e3n._.js": {
+          "accepted_lines": 4032
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_nodes_element_1k71h2-xkjdj7._.js": {
+          "accepted_lines": 1878
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0c2evxvhv5v5t._.js": {
+          "accepted_lines": 3969
+        },
+        ".next-dev/dev/server/chunks/node_modules_highlight_1j5z0fvz2cfhy.js": {
+          "accepted_lines": 2222
+        },
+        ".next-dev/dev/server/chunks/[externals]__1zs7urr7wwkyi._.js": {
+          "accepted_lines": 248
+        },
+        ".next-dev/dev/server/chunks/node_modules_lib0_0cg36kwx8gb2k._.js": {
+          "accepted_lines": 4669
+        },
+        ".next-dev/dev/types/cache-life.d.ts": {
+          "accepted_lines": 114
+        },
+        ".next-dev/dev/server/chunks/lib_api_ts_1yabeypvg4r7c._.js": {
+          "accepted_lines": 2686
+        },
+        ".next-dev/dev/server/chunks/[externals]__1-s94-58zw88-._.js": {
+          "accepted_lines": 14
+        },
+        ".next-dev/dev/server/chunks/node_modules_zod_v4_classic_0-jq6xr0q2_uz._.js": {
+          "accepted_lines": 3897
+        },
+        ".next-dev/dev/server/chunks/node_modules_@peculiar_x509_build_x509_es_087v78pfl0skt.js": {
+          "accepted_lines": 3731
+        },
+        ".next-dev/dev/server/chunks/node_modules_isomorphic-git_218r7jlad3-dr._.js": {
+          "accepted_lines": 17360
+        },
+        ".next-dev/dev/server/chunks/node_modules_happy-dom_lib_svg_07s5gpv89z0wm._.js": {
+          "accepted_lines": 4413
+        },
+        ".next-dev/dev/server/chunks/node_modules_1xrtzd6zy41-_._.js": {
+          "accepted_lines": 41650
+        }
+      }
+    }
+  }
+}
