@@ -1,0 +1,93 @@
+lib/upload-fs.ts
+  876e8ebdf0d76efb 1-75
+lib/file-text.ts
+  876e8ebdf0d76efb 2,36,41,49,54
+lib/storage.ts
+  876e8ebdf0d76efb 13,119,127,135,186,194,236,249,264
+lib/db.ts
+  876e8ebdf0d76efb 2,1178,1220,1244
+lib/shared-uploads.ts
+  876e8ebdf0d76efb 1,78,81,84,135
+.gitignore
+  876e8ebdf0d76efb 14-15
+app/api/health/route.ts
+  876e8ebdf0d76efb 5,45
+lib/image-placeholders.ts
+  876e8ebdf0d76efb 14,24,107
+lib/row-transfer.ts
+  876e8ebdf0d76efb 13,35,100,102
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "d9117bdad4fe72c441d29fe085dcf5866c7ae0c6",
+  "prompts": {
+    "876e8ebdf0d76efb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "89427376-645f-4bc2-a5f9-2fd15c3b781c",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": "Gavin",
+      "messages": [],
+      "total_additions": 113,
+      "total_deletions": 53,
+      "accepted_lines": 3646165,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        ".wrangler/tmp/dev-lJ5GwB/app-worker.js": {
+          "accepted_lines": 3645910
+        },
+        "lib/storage.ts": {
+          "additions": 9,
+          "deletions": 11,
+          "accepted_lines": 9
+        },
+        "lib/shared-uploads.ts": {
+          "additions": 6,
+          "deletions": 10,
+          "accepted_lines": 5
+        },
+        "lib/upload-fs.ts": {
+          "additions": 75,
+          "accepted_lines": 75
+        },
+        "lib/db.ts": {
+          "additions": 5,
+          "deletions": 3,
+          "accepted_lines": 5
+        },
+        "lib/row-transfer.ts": {
+          "additions": 4,
+          "deletions": 7,
+          "accepted_lines": 4
+        },
+        "lib/image-placeholders.ts": {
+          "additions": 3,
+          "deletions": 2,
+          "accepted_lines": 3
+        },
+        "lib/file-text.ts": {
+          "additions": 7,
+          "deletions": 12,
+          "accepted_lines": 5
+        },
+        ".wrangler/tmp/bundle-PzjRrL/middleware-loader.entry.ts": {
+          "accepted_lines": 134
+        },
+        ".wrangler/tmp/bundle-PzjRrL/middleware-insertion-facade.js": {
+          "accepted_lines": 11
+        },
+        ".gitignore": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "app/api/health/route.ts": {
+          "additions": 2,
+          "deletions": 8,
+          "accepted_lines": 2
+        }
+      }
+    }
+  }
+}
