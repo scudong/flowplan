@@ -1,5 +1,5 @@
 import { ensureLocal } from "./storage";
-import { readFileSync, statSync } from "node:fs";
+import { readUpload, uploadSize } from "./upload-fs";
 import { resolve } from "node:path";
 import { all, run } from "./db";
 import { MAX_PDF_TEXT, pdfScanImages, pdfText } from "./pdf-text";
@@ -33,17 +33,12 @@ const officeMimes = Object.keys(OFFICE_TYPES);
 
 async function extract(file: { id: string; name: string; mime: string }) {
   await ensureLocal(file.id);
-  const path = resolve(
-    process.env.FLOWPLAN_DATA_DIR || "./data",
-    "uploads",
-    file.id,
-  );
-  const size = statSync(path).size;
+  const size = uploadSize(file.id);
   const office = officeKind(file.mime, file.name);
   if (office) {
     if (size > MAX_PDF_BYTES) return { text: "", status: "too-large" };
     return {
-      text: await withTimeout(officeText(readFileSync(path), office)),
+      text: await withTimeout(officeText(Buffer.from(readUpload(file.id)), office)),
       status: "ok",
     };
   }
@@ -51,12 +46,12 @@ async function extract(file: { id: string; name: string; mime: string }) {
     if (!ocrEnabled()) return { text: "", status: "skipped" };
     if (size > MAX_IMAGE_BYTES) return { text: "", status: "too-large" };
     return {
-      text: await withTimeout(ocrImage(readFileSync(path)), OCR_TIMEOUT),
+      text: await withTimeout(ocrImage(Buffer.from(readUpload(file.id))), OCR_TIMEOUT),
       status: "ocr",
     };
   }
   if (size > MAX_PDF_BYTES) return { text: "", status: "too-large" };
-  const data = readFileSync(path);
+  const data = readUpload(file.id);
   const text = await withTimeout(pdfText(data));
   if (text.trim().length >= 20 || !ocrEnabled()) return { text, status: "ok" };
   // Scanned documents: recognise the page images.

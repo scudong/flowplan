@@ -10,6 +10,7 @@
 // still plain and "Encrypt existing objects" uploads just those again.
 import { AwsClient } from "aws4fetch";
 import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
+import { existsUpload, onCloud, readUpload, removeUpload, writeUpload } from "./upload-fs";
 import { resolve } from "node:path";
 import type { DatabaseSync } from "node:sqlite";
 import { currentKeyId, isEncrypted, seal, unseal } from "./encryption";
@@ -115,6 +116,7 @@ export function setupStorage(d: DatabaseSync) {
       SELECT storage_kick();
     END;`);
   const marker = resolve(process.env.FLOWPLAN_DATA_DIR || "./data", "storage-resync");
+  const cloud = onCloud();
   const previous = (
     d.prepare("SELECT value FROM storage_state WHERE name='target'").get() as
       | { value: string }
@@ -122,7 +124,7 @@ export function setupStorage(d: DatabaseSync) {
   )?.value;
   // First use of this bucket, or local files replaced by an instance
   // restore: every file is uploaded again.
-  if (previous !== target(config) || existsSync(marker)) {
+  if (previous !== target(config) || (!cloud && existsSync(marker))) {
     d.exec("DELETE FROM storage_sealed");
     d.exec(
       "INSERT INTO storage_queue(key,op) SELECT id,'put' FROM files WHERE true ON CONFLICT(key) DO UPDATE SET op='put',attempts=0,next_at=0",
@@ -130,7 +132,7 @@ export function setupStorage(d: DatabaseSync) {
     d.prepare(
       "INSERT INTO storage_state(name,value) VALUES('target',?) ON CONFLICT(name) DO UPDATE SET value=excluded.value",
     ).run(target(config));
-    rmSync(marker, { force: true });
+    if (!cloud) rmSync(marker, { force: true });
   }
   state.flowplanStorage = { db: d, draining: false, again: false };
   // Retries and files written outside a transaction.
@@ -180,9 +182,8 @@ async function drain() {
         try {
           if (!validKey(job.key)) return finish();
           if (job.op === "put") {
-            const path = localPath(job.key);
             // Removed again before it was uploaded.
-            if (!existsSync(path)) {
+            if (!existsUpload(job.key)) {
               if (!s.db.prepare("SELECT 1 FROM files WHERE id=?").get(job.key))
                 return finish();
               throw new Error("Lokale Datei fehlt noch.");
@@ -190,7 +191,7 @@ async function drain() {
             const keyId = currentKeyId();
             const response = await aws(config).fetch(objectUrl(config, job.key), {
               method: "PUT",
-              body: new Uint8Array(seal(readFileSync(path))),
+              body: new Uint8Array(seal(readUpload(job.key))),
             });
             if (!response.ok) throw new Error(`PUT ${response.status}`);
             s.db
@@ -232,7 +233,7 @@ async function drain() {
 export async function ensureLocal(key: string) {
   if (!validKey(key)) return false;
   const path = localPath(key);
-  if (existsSync(path)) return true;
+  if (existsUpload(key)) return true;
   const config = storageConfig();
   if (!config) return false;
   try {
@@ -245,10 +246,7 @@ export async function ensureLocal(key: string) {
     const sealedWith = state.flowplanStorage?.db.prepare("SELECT key_id FROM storage_sealed WHERE key=?").get(key) as { key_id: string } | undefined;
     if (sealedWith?.key_id && !isEncrypted(raw)) throw new Error("Unverschlüsseltes Objekt anstelle eines verschlüsselten – nicht übernommen.");
     const data = unseal(raw);
-    mkdirSync(uploadsDir(), { recursive: true });
-    const partial = `${path}.${process.pid}.part`;
-    writeFileSync(partial, data);
-    renameSync(partial, path);
+    writeUpload(key, data);
     return true;
   } catch (error) {
     if (/Schlüssel|Entschlüsseln|verschlüsselt/.test(String((error as Error)?.message)))
@@ -263,7 +261,7 @@ async function hydrate() {
   if (!s) return;
   const ids = (s.db.prepare("SELECT id FROM files").all() as { id: string }[])
     .map((row) => row.id)
-    .filter((key) => validKey(key) && !existsSync(localPath(key)));
+    .filter((key) => validKey(key) && !existsUpload(key));
   let restored = 0;
   for (const key of ids)
     if (!s.db.prepare("SELECT 1 FROM storage_queue WHERE key=?").get(key) && (await ensureLocal(key)))

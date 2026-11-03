@@ -11,3 +11,5 @@ __pycache__/
 extensions/browser/dist/
 .i18n-templates-zh-progress.json
 .next-dev/
+
+.wrangler/

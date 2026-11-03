@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 import { buildInfo } from "@/lib/build-info";
-import { accessSync, constants, mkdirSync } from "node:fs";
-import { resolve } from "node:path";
 import { sessionIdentityFromRequest } from "@/lib/auth";
 import { one } from "@/lib/db";
+import { uploadsReady } from "@/lib/upload-fs";
 import { metricsAuthorized } from "@/lib/instance-ops";
 import { storageStatus } from "@/lib/storage";
 
@@ -43,12 +42,7 @@ export async function GET(request: Request) {
     checks.database = "error";
   }
   try {
-    const uploads = resolve(
-      process.env.FLOWPLAN_DATA_DIR || "./data",
-      "uploads",
-    );
-    mkdirSync(uploads, { recursive: true });
-    accessSync(uploads, constants.W_OK);
+    uploadsReady();
     checks.storage = "ok";
   } catch {
     checks.storage = "error";

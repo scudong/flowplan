@@ -1,4 +1,5 @@
 import { setupStorage } from "./storage";
+import { onCloud, removeUpload } from "./upload-fs";
 import { DatabaseSync } from "node:sqlite";
 import { mkdirSync, unlinkSync } from "node:fs";
 import { applyPendingRestore } from "./instance-restore-apply";
@@ -1174,9 +1175,7 @@ function cleanDeletedFiles(d: DatabaseSync) {
       )
         continue;
       try {
-        unlinkSync(
-          resolve(process.env.FLOWPLAN_DATA_DIR || "./data", "uploads", fileId),
-        );
+        removeUpload(fileId);
       } catch (error) {
         if ((error as NodeJS.ErrnoException).code !== "ENOENT") continue;
       }
@@ -1218,6 +1217,8 @@ function createBaseSchema(d: DatabaseSync) {
    `);
 }
 
+export const onCloudDb = onCloud;
+
 export function db() {
   if (globalDb.flowplanCloudDb) {
     globalDb.flowplanDb ??= globalDb.flowplanCloudDb;
@@ -1240,6 +1241,7 @@ export function db() {
   d.exec(
     "PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;",
   );
+  createBaseSchema(d);
   globalDb.flowplanDb = d;
   migrate(d);
   cleanDeletedFiles(d);

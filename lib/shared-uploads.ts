@@ -1,4 +1,4 @@
-import { mkdirSync, unlinkSync, writeFileSync } from "node:fs";
+import { removeUpload, writeUpload } from "./upload-fs";
 import { sanitizeFileName, stripLocation } from "./upload-safety";
 import { resolve } from "node:path";
 import { all, id, one, onTransactionRollback, run, transaction, audit } from "./db";
@@ -64,7 +64,6 @@ export async function guestUpload(token: string, pageId: string, file: File) {
     throw new HttpError(415, "Der Dateiinhalt passt nicht zum Dateityp.");
   if (file.type === "text/plain" && data.includes(0))
     throw new HttpError(415, "Keine Textdatei.");
-  const dir = resolve(process.env.FLOWPLAN_DATA_DIR || "./data", "uploads");
   return transaction(() => {
     const { page, role } = publicPage(token, pageId);
     if (role !== "editor")
@@ -76,15 +75,13 @@ export async function guestUpload(token: string, pageId: string, file: File) {
     enforceQuota(page.workspace_id, data.length);
     // Independent of the workspace quota, which is unlimited by default.
     takeAnonymousBudget(`share:${token}`, data.length);
-    const fid = id(),
-      path = resolve(dir, fid);
-    mkdirSync(dir, { recursive: true });
+    const fid = id();
     onTransactionRollback(() => {
       try {
-        unlinkSync(path);
+        removeUpload(fid);
       } catch {}
     });
-    writeFileSync(path, data, { flag: "wx" });
+    writeUpload(fid, data, true);
     const name = sanitizeFileName(file.name, `datei.${allowed[file.type]}`);
     run(
       "INSERT INTO files(id,page_id,name,mime,size,created_by) VALUES(?,?,?,?,?,NULL)",
@@ -116,7 +113,6 @@ export function purgeUnusedGuestUploads(now = Date.now()) {
      WHERE s.created_at<? LIMIT 50`,
     now - DAY,
   );
-  const dir = resolve(process.env.FLOWPLAN_DATA_DIR || "./data", "uploads");
   for (const f of stale) {
     const needle = `%/api/files/${f.id}%`;
     const used = all(
@@ -136,7 +132,7 @@ export function purgeUnusedGuestUploads(now = Date.now()) {
     else {
       run("DELETE FROM files WHERE id=?", f.id);
       try {
-        unlinkSync(resolve(dir, f.id));
+        removeUpload(f.id);
       } catch {}
     }
   }

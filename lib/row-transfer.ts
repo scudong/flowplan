@@ -9,9 +9,8 @@
 import { isTagField, syncTagFieldOptions, tagCells } from "./tag-fields";
 import { assertFieldsWritable, hiddenFieldsFor } from "./field-access";
 import { aliasList } from "./aliases";
-import { copyFileSync, existsSync, mkdirSync } from "node:fs";
-import { resolve } from "node:path";
 import { z } from "zod";
+import { existsUpload, readUpload, writeUpload } from "./upload-fs";
 import { all, id, one, run } from "./db";
 import { HttpError } from "./auth";
 import { requirePage } from "./permissions";
@@ -33,7 +32,7 @@ const input = z.object({
 const NOT_COPIED = new Set<Field["type"]>(["formula", "rollup", "created_at", "updated_at", "created_by", "updated_by", "id", "progress", "sprint"]);
 const TEXTLIKE = new Set<Field["type"]>(["text", "url", "email", "phone"]);
 const fieldsOf = (pageId: string) => JSON.parse(one<{ fields: string }>("SELECT fields FROM databases WHERE page_id=?", pageId)!.fields) as Field[];
-const dataDir = () => resolve(process.env.FLOWPLAN_DATA_DIR || "./data", "uploads");
+
 const FILE_URL = /\/api\/files\/([0-9a-f-]{36})/gi;
 
 // Where a source property goes in the target (or null).
@@ -98,11 +97,9 @@ function nextNumber(pageId: string) {
 // source's permissions); without the local file the reference stays.
 function copyFile(fileId: string, target: Page, userId: string) {
   const file = one<{ id: string; name: string; mime: string; size: number }>("SELECT id,name,mime,size FROM files WHERE id=?", fileId);
-  const from = resolve(dataDir(), fileId);
-  if (!file || !existsSync(from)) return fileId;
+  if (!file || !existsUpload(fileId)) return fileId;
   const fresh = id();
-  mkdirSync(dataDir(), { recursive: true });
-  copyFileSync(from, resolve(dataDir(), fresh));
+  writeUpload(fresh, readUpload(fileId));
   run("INSERT INTO files(id,page_id,name,mime,size,created_by) VALUES(?,?,?,?,?,?)", fresh, target.id, file.name, file.mime, file.size, userId);
   return fresh;
 }
