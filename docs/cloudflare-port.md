@@ -40,7 +40,9 @@ Worker（OpenNext：静态资源走 ASSETS，免费无限）
 - ✅ OpenNext 构建通过（open-next.config.ts：无增量缓存）；wrangler.jsonc 在仓库根（main=cloud/app-worker.ts）
 - ✅ **Next handler 在 DO 内跑通**：`/api/health` 返回 flowplan 自己的 JSON。关键坑：DO fetch 不注入 env（从构造函数第二参拿）；ctx 用 `state.waitUntil` 自造
 - ✅ cloud 分支补跑基础建表（原先「no such table: templates」）
-- 🔄 未解：`Cannot perform I/O on behalf of a different Durable Object`（页面渲染 500）——疑 OpenNext 的流/缓存对象跨 DO 边界，待查
+- ✅ ~~跨 DO I/O 错误~~（重建后消失）
+- ✅ **端到端验收（wrangler dev 本地）**：建账户 `/api/auth/register` 200 → 登录 200+会话 Cookie → 带会话首页 200（中文标题）。DB 写路径（INSERT+事务+会话）全通
+- 🔄 剩余错误都是 fs 层：`operation not permitted`（后台 fs 调用）、/api/health 503（uploads 目录检查）——待 fs→R2/禁用
 - 🔄 tsconfig exclude 了 cloud/（避免 .open-next 循环依赖）；wrangler types 未接
 
 ## 待办（按序）
