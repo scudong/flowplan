@@ -9,3 +9,5 @@ test-results/
 .i18n-zh-progress.json
 __pycache__/
 extensions/browser/dist/
+.i18n-templates-zh-progress.json
+.next-dev/

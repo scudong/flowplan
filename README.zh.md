@@ -17,6 +17,7 @@
 | AI 写作 / 摘要 / 白板支持中文（含中文摘要小标题、语言识别） | `lib/ai/prompts.ts`、`lib/ai/device-prompts.ts`、`lib/ai/summarize.ts`、`lib/ai/whiteboard.ts` |
 | 同源校验放宽（`checkOrigin`）：Origin 与请求的 Host 头同源即放行（上游只认 `APP_URL`，绑定 0.0.0.0 时 `req.url` 的主机名不真实，且换地址就 403）；本机回环名（localhost / 127.0.0.1 / ::1，同协议同端口）视为等价。`APP_URL` 与外来源仍然拒绝 | `lib/auth.ts` |
 | 中文 OCR（扫描件 / 图片文字识别，默认 chi_sim + eng） | `lib/ocr.ts`、`next.config.ts`、依赖 `@tesseract.js-data/chi_sim` |
+| 内置模板库中文化（26 个页面/数据库模板：名称、描述、字段、选项、视图、示例数据、公式引用） | `lib/template-catalog-zh.ts`（由 `scripts/i18n-templates-zh.mjs` 生成，勿手改） |
 | 翻译脚本（可重复执行，断点续传） | `scripts/i18n-translate-zh.mjs` |
 | 语言数量事实表同步 | `facts.json`（`npm run facts` 生成） |
 
