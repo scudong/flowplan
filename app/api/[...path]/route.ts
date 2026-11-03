@@ -57,7 +57,7 @@ import { exportablePages, markdownExportStatus, runMarkdownExports, setMarkdownE
 import { runSpaceGitExport, spaceGitOverview, spaceGitStatus } from "@/lib/space-git-export";
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { mkdir, writeFile } from "node:fs/promises";
+import { writeUpload } from "@/lib/upload-fs";
 import { resolve } from "node:path";
 import {
   requireUser,
@@ -1248,10 +1248,8 @@ async function handlePOST(
       const image = await downloadImage(body.url, Math.min(maxUpload * 1024 * 1024, body.gif ? GIF_MAX_BYTES : 15 * 1024 * 1024));
       enforceQuota(p.workspace_id, image.data.length);
       enforceUserStorage(user, image.data.length);
-      const fid = id(),
-        dir = resolve(process.env.FLOWPLAN_DATA_DIR || "./data", "uploads");
-      await mkdir(dir, { recursive: true });
-      await writeFile(resolve(dir, fid), image.data);
+      const fid = id();
+      writeUpload(fid, image.data);
       const name = `${(body.credit || "Bild").replace(/[\\/:*?"<>|]+/g, " ").slice(0, 80)}.${image.ext}`;
       run(
         "INSERT INTO files(id,page_id,name,mime,size,created_by) VALUES(?,?,?,?,?,?)",
@@ -1539,16 +1537,14 @@ async function handlePOST(
           400,
           "Bitte PNG, JPEG, GIF, WebP oder AVIF verwenden.",
         );
-      const fid = id(),
-        dir = resolve(process.env.FLOWPLAN_DATA_DIR || "./data", "uploads");
+      const fid = id();
       // The type must match the content; photos lose their location.
       const raw = Buffer.from(await file.arrayBuffer());
       if (encrypted && raw.subarray(0, 4).toString("latin1") !== "FPX1") throw new HttpError(400, "Ungültige Eingabe.");
       const mime = encrypted ? "application/octet-stream" : verifiedMime(file.type, raw);
       const content = encrypted ? raw : stripLocation(raw, mime);
       const name = encrypted ? "encrypted.bin" : sanitizeFileName(file.name);
-      await mkdir(dir, { recursive: true });
-      await writeFile(resolve(dir, fid), content);
+      writeUpload(fid, content);
       run(
         "INSERT INTO files(id,page_id,name,mime,size,created_by) VALUES(?,?,?,?,?,?)",
         fid,

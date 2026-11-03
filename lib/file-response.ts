@@ -1,4 +1,5 @@
 import { ensureLocal } from "./storage";
+import { onCloud, readUpload } from "./upload-fs";
 import { open } from "node:fs/promises";
 import { resolve } from "node:path";
 import { HttpError } from "./auth";
@@ -10,16 +11,24 @@ export async function fileResponse(
   let handle;
   // A new container may not have the file yet; the bucket has it.
   await ensureLocal(file.id);
+  // Cloudflare: the upload lives in the DO's blobs; slice from memory.
+  const blob = onCloud()
+    ? await Promise.resolve()
+        .then(() => readUpload(file.id))
+        .catch(() => null)
+    : null;
+  if (!onCloud()) {
+    try {
+      handle = await open(
+        resolve(process.env.FLOWPLAN_DATA_DIR || "./data", "uploads", file.id),
+        "r",
+      );
+    } catch {
+      throw new HttpError(404, "Datei fehlt.");
+    }
+  } else if (!blob) throw new HttpError(404, "Datei fehlt.");
   try {
-    handle = await open(
-      resolve(process.env.FLOWPLAN_DATA_DIR || "./data", "uploads", file.id),
-      "r",
-    );
-  } catch {
-    throw new HttpError(404, "Datei fehlt.");
-  }
-  try {
-    const { size } = await handle.stat();
+    const size = onCloud() ? blob!.length : (await handle!.stat()).size;
     const inline =
       /^(image\/(png|jpeg|gif|webp|avif)|video\/(mp4|webm)|audio\/(mpeg|ogg|wav|mp4|webm))$/.test(
         file.mime,
@@ -66,10 +75,15 @@ export async function fileResponse(
     }
     headers["Content-Length"] = String(Math.max(0, end - start + 1));
     if (req.method === "HEAD") return new Response(null, { status, headers });
+    if (blob)
+      return new Response(new Uint8Array(blob.subarray(start, end + 1)), {
+        status,
+        headers,
+      });
     const buffer = Buffer.alloc(Math.max(0, end - start + 1));
     let offset = 0;
     while (offset < buffer.length) {
-      const result = await handle.read(
+      const result = await handle!.read(
         buffer,
         offset,
         buffer.length - offset,
@@ -83,6 +97,6 @@ export async function fileResponse(
       headers,
     });
   } finally {
-    await handle.close();
+    if (!onCloud() && handle) await handle.close();
   }
 }

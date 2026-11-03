@@ -1221,8 +1221,16 @@ export const onCloudDb = onCloud;
 
 export function db() {
   if (globalDb.flowplanCloudDb) {
-    globalDb.flowplanDb ??= globalDb.flowplanCloudDb;
-    createBaseSchema(globalDb.flowplanDb);
+    if (!globalDb.flowplanDb) {
+      const cloud = globalDb.flowplanCloudDb;
+      try {
+        createBaseSchema(cloud);
+      } catch (error) {
+        console.error("Cloud schema setup failed, will retry", error);
+        throw error;
+      }
+      globalDb.flowplanDb = cloud;
+    }
     migrate(globalDb.flowplanDb);
     return globalDb.flowplanDb;
   }
