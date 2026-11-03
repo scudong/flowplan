@@ -1,0 +1,137 @@
+.open-next/server-functions/default/handler.mjs.meta.json
+  876e8ebdf0d76efb 3619,3624,3679,3684,3814,3819,3963,3965,3968,3970,4023,4025,4028,4030,4158,4160,4163,4165,7682,7728,7774,7840,9835,9866,9877,10720,12317,13386,14973,59535,59538,59571,59574,59652,59655,60085,60109,60133,60169,60442,60457,60460,60667,61012,61264,61513,64348
+.open-next/assets/BUILD_ID
+  876e8ebdf0d76efb 1
+.open-next/server-functions/default/handler.mjs
+  876e8ebdf0d76efb 83,1537-1565,4006-4034,6568-6596,9573-9601,15817-15845,17922-17950,18401-18429,18493,19645,20439-20467,22143,22333,23977,24560,25244,25336-25337,25340,25771-25800,25804,26625,26835-26836,26839,27270-27299,27303,27495,28448,29040-29041,29044,29475-29504,29508,29777,30429,30636,30900,31640,31746,32672,33277,40344
+.open-next/middleware/lib/db.ts
+  876e8ebdf0d76efb 1188-1220,1224
+.open-next/server-functions/default/index.mjs
+  876e8ebdf0d76efb 1349-1350,1360
+.open-next/.build/durable-objects/queue.js
+  876e8ebdf0d76efb 183,235,259-260
+.open-next/dynamodb-provider/dynamodb-cache.json
+  876e8ebdf0d76efb 1
+.open-next/middleware/docs/cloudflare-port.md
+  876e8ebdf0d76efb 38-45
+.wrangler/tmp/bundle-PzjRrL/middleware-insertion-facade.js
+  876e8ebdf0d76efb 1-11
+.open-next/middleware/handler.mjs
+  876e8ebdf0d76efb 96020-96048,96055,112132-112160,112167,223034-223062,223069,316383-316411,316418,568322-568350,568357,718180-718208,718215,925481-925509,925516,1015174-1015175,1015185
+.open-next/server-functions/default/docs/cloudflare-port.md
+  876e8ebdf0d76efb 38-45
+.open-next/cloudflare/init.js
+  876e8ebdf0d76efb 50
+.open-next/server-functions/default/cloud/app-do.ts
+  876e8ebdf0d76efb 20-28,39,42-43
+.wrangler/tmp/bundle-PzjRrL/middleware-loader.entry.ts
+  876e8ebdf0d76efb 1-134
+.wrangler/tmp/dev-lJ5GwB/app-worker.js
+  876e8ebdf0d76efb 1-3645910
+.open-next/middleware/cloud/app-do.ts
+  876e8ebdf0d76efb 20-28,39,42-43
+.open-next/server-functions/default/lib/db.ts
+  876e8ebdf0d76efb 1188-1220,1224
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "9fd5b92764ef7664b0c99b5e4afefc11a893d499",
+  "prompts": {
+    "876e8ebdf0d76efb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "89427376-645f-4bc2-a5f9-2fd15c3b781c",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": "Gavin",
+      "messages": [],
+      "total_additions": 3646787,
+      "total_deletions": 690,
+      "accepted_lines": 3646787,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        ".open-next/middleware/docs/cloudflare-port.md": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        ".open-next/assets/BUILD_ID": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        ".open-next/cloudflare/init.js": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        ".open-next/middleware/lib/db.ts": {
+          "additions": 34,
+          "deletions": 29,
+          "accepted_lines": 34
+        },
+        ".open-next/middleware/cloud/app-do.ts": {
+          "additions": 12,
+          "deletions": 4,
+          "accepted_lines": 12
+        },
+        ".open-next/middleware/handler.mjs": {
+          "additions": 213,
+          "deletions": 213,
+          "accepted_lines": 213
+        },
+        ".open-next/dynamodb-provider/dynamodb-cache.json": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        ".wrangler/tmp/bundle-PzjRrL/middleware-insertion-facade.js": {
+          "additions": 11,
+          "accepted_lines": 11
+        },
+        ".open-next/.build/durable-objects/queue.js": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 4
+        },
+        ".open-next/server-functions/default/index.mjs": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        ".open-next/server-functions/default/lib/db.ts": {
+          "additions": 34,
+          "deletions": 29,
+          "accepted_lines": 34
+        },
+        ".open-next/server-functions/default/docs/cloudflare-port.md": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        ".open-next/server-functions/default/cloud/app-do.ts": {
+          "additions": 12,
+          "deletions": 4,
+          "accepted_lines": 12
+        },
+        ".open-next/server-functions/default/handler.mjs.meta.json": {
+          "additions": 47,
+          "deletions": 47,
+          "accepted_lines": 47
+        },
+        ".open-next/server-functions/default/handler.mjs": {
+          "additions": 354,
+          "deletions": 354,
+          "accepted_lines": 354
+        },
+        ".wrangler/tmp/bundle-PzjRrL/middleware-loader.entry.ts": {
+          "additions": 134,
+          "accepted_lines": 134
+        },
+        ".wrangler/tmp/dev-lJ5GwB/app-worker.js": {
+          "additions": 3645910,
+          "accepted_lines": 3645910
+        }
+      }
+    }
+  }
+}
