@@ -40,7 +40,7 @@ test("the language of a request: cookie first, then the browser", () => {
   const req = (headers: Record<string, string>) => new Request("http://x/", { headers });
   assert.equal(localeOfRequest(req({ cookie: "a=1; flowplan-lang=en", "accept-language": "de" })), "en");
   assert.equal(localeOfRequest(req({ "accept-language": "de-DE" })), "de");
-  assert.equal(localeOfRequest(req({})), "en");
+  assert.equal(localeOfRequest(req({})), "zh");
 });
 
 test("journal days keep their automatic title in both languages", () => {

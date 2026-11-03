@@ -14,6 +14,7 @@ export const LANGUAGES = {
   de: { name: "Deutsch", tag: "de-DE", flag: "🇩🇪" },
   en: { name: "English", tag: "en-GB", flag: "🇬🇧" },
   fr: { name: "Français", tag: "fr-FR", flag: "🇫🇷" },
+  zh: { name: "简体中文", tag: "zh-CN", flag: "🇨🇳" },
 } as const;
 export type Locale = keyof typeof LANGUAGES;
 export const LOCALES = Object.keys(LANGUAGES) as Locale[];
@@ -39,7 +40,9 @@ export function pickLocale(cookie?: string | null, acceptLanguage?: string | nul
     .filter((x) => x.lang && x.q > 0)
     .sort((a, b) => b.q - a.q || a.index - b.index);
   for (const { lang } of wanted) if (isLocale(lang)) return lang;
-  return "en";
+  // This Chinese-localised fork defaults to Chinese when the browser asks for
+  // no supported language (upstream: "en").
+  return "zh";
 }
 
 // An English text may carry a context after "||" ("Open||status"): English

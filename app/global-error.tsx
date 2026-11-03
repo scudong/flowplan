@@ -6,9 +6,9 @@ import { useEffect } from "react";
 import { LOCALES, translate, type Locale } from "@/lib/i18n";
 
 function browserLocale(): Locale {
-  if (typeof navigator === "undefined") return "en";
-  const tag = (navigator.language || "en").slice(0, 2).toLowerCase();
-  return (LOCALES as string[]).includes(tag) ? (tag as Locale) : "en";
+  if (typeof navigator === "undefined") return "zh";
+  const tag = (navigator.language || "zh").slice(0, 2).toLowerCase();
+  return (LOCALES as string[]).includes(tag) ? (tag as Locale) : "zh";
 }
 
 export default function GlobalError({ error, retry, reset }: { error: unknown; retry: () => void; reset: () => void }) {

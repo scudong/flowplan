@@ -3,13 +3,14 @@ import { join, resolve } from "node:path";
 import { deflateSync } from "node:zlib";
 
 // Text recognition for scanned PDFs and images. The language data ships
-// with the app and is never downloaded at runtime: German, English and
-// French. FLOWPLAN_OCR_LANGS chooses the languages that are loaded, e.g.
-// "fra,eng"; the first one is the main language. Every extra language costs
-// memory and time per page, so the default stays German and English.
-export const OCR_LANGUAGES = ["deu", "eng", "fra"] as const;
+// with the app and is never downloaded at runtime: German, English,
+// French and Simplified Chinese. FLOWPLAN_OCR_LANGS chooses the languages
+// that are loaded, e.g. "fra,eng"; the first one is the main language.
+// Every extra language costs memory and time per page, so the default stays
+// Chinese and English.
+export const OCR_LANGUAGES = ["deu", "eng", "fra", "chi_sim"] as const;
 type Language = (typeof OCR_LANGUAGES)[number];
-const DEFAULT_LANGUAGES: Language[] = ["deu", "eng"];
+const DEFAULT_LANGUAGES: Language[] = ["chi_sim", "eng"];
 const isLanguage = (value: string): value is Language =>
   (OCR_LANGUAGES as readonly string[]).includes(value);
 // Unknown codes are ignored (they also name files); nothing valid left

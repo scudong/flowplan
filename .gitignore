@@ -6,5 +6,6 @@ data/
 playwright-report/
 test-results/
 *.tsbuildinfo
+.i18n-zh-progress.json
 __pycache__/
 extensions/browser/dist/
