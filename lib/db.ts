@@ -12,6 +12,11 @@ const globalDb = globalThis as unknown as {
   flowplanDb?: DatabaseSync;
   flowplanSchema?: number;
   flowplanRollback?: (() => void)[];
+  // Cloudflare: the DO bootstrap installs the DatabaseSync-compatible
+  // facade over the DO's SQLite storage (lib/db-cloud.ts) and its
+  // transactionSync before the request handler runs.
+  flowplanCloudDb?: DatabaseSync;
+  flowplanCloudTx?: <T>(fn: () => T) => T;
 };
 function migrate(d: DatabaseSync) {
   if (globalDb.flowplanSchema === 85) return;
@@ -1181,6 +1186,11 @@ function cleanDeletedFiles(d: DatabaseSync) {
 }
 
 export function db() {
+  if (globalDb.flowplanCloudDb) {
+    globalDb.flowplanDb ??= globalDb.flowplanCloudDb;
+    migrate(globalDb.flowplanDb);
+    return globalDb.flowplanDb;
+  }
   if (globalDb.flowplanDb) {
     migrate(globalDb.flowplanDb);
     return globalDb.flowplanDb;
@@ -1290,6 +1300,35 @@ export function audit(
     } catch {}
 }
 export function transaction<T>(fn: () => T, actor?: Identity): T {
+  if (globalDb.flowplanCloudTx) {
+    // workerd refuses BEGIN/COMMIT: the DO's transactionSync takes the
+    // whole callback and rolls the SQL back when it throws.
+    globalDb.flowplanRollback = [];
+    try {
+      const value = globalDb.flowplanCloudTx(() => {
+        const inner = fn();
+        flushRelationChanges(actor);
+        return inner;
+      });
+      try {
+        cleanDeletedFiles(db());
+      } catch (error) {
+        console.error("Upload cleanup failed", error);
+      }
+      return value;
+    } catch (e) {
+      for (const cleanup of globalDb.flowplanRollback || []) {
+        try {
+          cleanup();
+        } catch {
+          /* preserve the original failure */
+        }
+      }
+      throw e;
+    } finally {
+      globalDb.flowplanRollback = undefined;
+    }
+  }
   db().exec("BEGIN IMMEDIATE");
   globalDb.flowplanRollback = [];
   try {

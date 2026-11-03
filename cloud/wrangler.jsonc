@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config.jsonc",
+  "name": "flowplan-spike",
+  "main": "spike.ts",
+  "compatibility_date": "2026-01-29",
+  "compatibility_flags": ["nodejs_compat", "enable_nodejs_sqlite_module"],
+  "durable_objects": {
+    "bindings": [{ "name": "DB", "class_name": "Spike" }]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["Spike"] }
+  ]
+}
