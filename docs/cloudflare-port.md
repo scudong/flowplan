@@ -45,6 +45,19 @@ Worker（OpenNext：静态资源走 ASSETS，免费无限）
 - 🔄 剩余错误都是 fs 层：`operation not permitted`（后台 fs 调用）、/api/health 503（uploads 目录检查）——待 fs→R2/禁用
 - 🔄 tsconfig exclude 了 cloud/（避免 .open-next 循环依赖）；wrangler types 未接
 
+## 进展 2（fs 层完成，2026-11-03 晚）
+
+- ✅ **上传/下载闭环**：/api/upload 200 → /api/files/<id> 200 原样返回（含中文内容）；
+  health 冷启动/空闲后均 200
+- ✅ `lib/upload-fs.ts`：uploads 双实现（Node=目录，Workers=DO `cloud_blobs` 表）；
+  storage.ts、shared-uploads、file-text、image-placeholders、row-transfer、
+  cleanDeletedFiles、health、fileResponse（Range/HEAD 支持）、/api/upload、
+  图片下载路由全部接入
+- ✅ 冷启动 I/O 错误修法：App DO **每次 fetch 重装门面** + db() 失败清缓存重试
+- 🜉 遗留（v1 可不用）：transcribe（语音转写临时目录）、instance-backup、
+  markdown-export、archive、S3 镜像（aws4fetch 理论可用，触发器用 d.function
+  门面不支持）；SCIM 测试发现上游 USER_SELECT 无 ORDER BY 的 flaky（可反馈上游）
+
 ## 待办（按序）
 
 1. **Next-in-DO**：OpenNext 构建产物（.open-next/worker.js）在 DO fetch 里调起；
