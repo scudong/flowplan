@@ -9,7 +9,7 @@ import { firstRun, installAppShortcuts } from "@/lib/app-shortcuts";
 import { desktopApp, desktopPageLink, inDesktopApp, nativeApp, offerDesktopApp, openInWindow } from "@/lib/native-app";
 import { currentOS } from "@/lib/device-os";
 import { serverMessage } from "@/lib/i18n-errors";
-import { LOCALE_TAG, tr } from "@/lib/locale-tag";
+import { LOCALE_TAG, PAGE_LOCALE, tr } from "@/lib/locale-tag";
 import { useLocale, useStatusLabel, useT, writeLocaleCookie } from "./i18n";
 import { localeTag, translate, type Locale } from "@/lib/i18n";
 import { BrandMark } from "./brand-mark";
@@ -1473,7 +1473,7 @@ export default function WorkspaceApp({
         // A template that comes with Flowplan (public gallery).
         if (useTemplate.startsWith("starter:")) {
           const key = useTemplate.slice(8);
-          const builtIn = catalogFor(LOCALE_TAG === "de-DE" ? "de" : "en")[key];
+          const builtIn = catalogFor(PAGE_LOCALE)[key];
           if (!builtIn) throw new Error(t("Diese Vorlage ist nicht mehr verfügbar.", "This template is no longer available."));
           const created = await mutate({
             action: "page.create",
@@ -5602,7 +5602,7 @@ export default function WorkspaceApp({
           ))}
         </nav>
         <div className="template-grid">
-          {Object.entries(catalogFor(LOCALE_TAG === "de-DE" ? "de" : "en"))
+          {Object.entries(catalogFor(PAGE_LOCALE))
             .filter(([, template]) => galleryCategory === "all" || template.category === galleryCategory)
             .map(([templateKey, template]) => (
               <button
