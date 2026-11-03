@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config.jsonc",
+  "name": "flowplan-cloud",
+  "main": "cloud/app-worker.ts",
+  "compatibility_date": "2026-01-29",
+  "compatibility_flags": ["nodejs_compat", "enable_nodejs_sqlite_module", "global_fetch_strictly_public"],
+  "assets": { "directory": "./.open-next/assets", "binding": "ASSETS" },
+  "durable_objects": { "bindings": [{ "name": "APP", "class_name": "App" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["App"] }],
+  "vars": { "FLOWPLAN_CLOUD_DB": "1", "FLOWPLAN_DATA_DIR": "/tmp/data" },
+  "observability": { "enabled": true }
+}
