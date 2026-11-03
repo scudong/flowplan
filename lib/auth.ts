@@ -358,7 +358,31 @@ export function checkOrigin(req: Request) {
   // be forged by another site (the cookie is ignored for them).
   if (req.headers.get("authorization")?.startsWith("Bearer fp_")) return;
   const origin = req.headers.get("origin");
-  if (origin !== new URL(appUrl()).origin) {
+  // The origin of the address the visitor is on: the Host header (what the
+  // browser typed), with the scheme from x-forwarded-proto behind a proxy.
+  // req.url alone lies when the server binds 0.0.0.0 – Next then reports
+  // that binding as the host.
+  const proto = req.headers.get("x-forwarded-proto")?.split(",")[0]?.trim() || (new URL(req.url).protocol === "https:" ? "https" : "http");
+  const requestOrigin = req.headers.get("host") ? `${proto}://${req.headers.get("host")}` : new URL(req.url).origin;
+  // Same origin as the request itself (the address typed in the browser) or
+  // as APP_URL is always fine. This fork also treats the loopback names as
+  // interchangeable (localhost, 127.0.0.1, [::1] with the same scheme and
+  // port), so a local instance works under every one of them; upstream
+  // compares against APP_URL only.
+  const sameHost =
+    origin === requestOrigin ||
+    origin === new URL(appUrl()).origin ||
+    (() => {
+      try {
+        const a = new URL(origin || "");
+        const b = new URL(requestOrigin);
+        const loop = (h: string) => h === "localhost" || h === "127.0.0.1" || h === "[::1]" || h === "::1";
+        return a.protocol === b.protocol && a.port === b.port && loop(a.hostname) && loop(b.hostname);
+      } catch {
+        return false;
+      }
+    })();
+  if (!sameHost) {
     securityEvent("request.origin", { headers: req.headers, detail: `${origin || "no origin"} → ${new URL(req.url).pathname}` });
     throw new HttpError(403, "Ungültiger Anfrageursprung.");
   }
