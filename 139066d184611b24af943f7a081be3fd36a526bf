@@ -1,0 +1,30 @@
+lib/scheduled-backup.ts
+  876e8ebdf0d76efb 124-127,132,137-138
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "139066d184611b24af943f7a081be3fd36a526bf",
+  "prompts": {
+    "876e8ebdf0d76efb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "89427376-645f-4bc2-a5f9-2fd15c3b781c",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": "Gavin",
+      "messages": [],
+      "total_additions": 7,
+      "total_deletions": 3,
+      "accepted_lines": 7,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "lib/scheduled-backup.ts": {
+          "additions": 7,
+          "deletions": 3,
+          "accepted_lines": 7
+        }
+      }
+    }
+  }
+}
