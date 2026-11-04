@@ -1,3 +1,4 @@
+import "./vm-patch-cloud";
 import { generateHTML, generateJSON } from "@tiptap/html/server";
 import type { DOMOutputSpec, Mark, Node } from "@tiptap/pm/model";
 import { calloutType, documentExtensions, documentSchema } from "./document-schema";

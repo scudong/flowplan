@@ -1,3 +1,4 @@
+import "./vm-patch-cloud";
 import { generateJSON, generateHTML } from "@tiptap/html/server";
 import { embedHosts, embedProvider } from "./embed-providers";
 import { prosemirrorJSONToYDoc, yDocToProsemirrorJSON } from "y-prosemirror";
