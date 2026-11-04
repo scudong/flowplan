@@ -58,6 +58,32 @@ Worker（OpenNext：静态资源走 ASSETS，免费无限）
   markdown-export、archive、S3 镜像（aws4fetch 理论可用，触发器用 d.function
   门面不支持）；SCIM 测试发现上游 USER_SELECT 无 ORDER BY 的 flaky（可反馈上游）
 
+## 结论（2026-11-04）：Workers 路线撞到硬上限
+
+实测（`npx opennextjs-cloudflare build` 产物）：
+
+| 项 | 大小 |
+|---|---|
+| `.open-next/server-functions/default/handler.mjs` | **229.8 MB** 原始 |
+| 同一文件 gzip 后 | **51.7 MB** |
+| Workers 免费档上限 | 3 MiB（压缩后） |
+| Workers 付费档上限 | 10 MiB（压缩后） |
+
+`npx wrangler deploy --dry-run` 直接报 `Cannot create a string longer than
+0x1fffffe8 characters`（512 MB），连打包都过不去。
+
+膨胀原因：Next 16 的 server bundle 把每个路由的 node_modules 都内联了一遍——
+Node 根证书 1.7 MB 出现 14 次、迁移 DDL 出现 31 次、tiptap/pdfjs/mermaid/katex
+全部进包。这不是配置能调好的量级（即便去重也仍远超 10 MiB）。
+
+**因此：flowplan 整套 Next 应用无法跑在 Cloudflare Workers 上（免费或付费都不行）。**
+
+唯一能在 Cloudflare 上跑完整 flowplan 的方式是 **Cloudflare Containers**：直接跑仓库自带的
+Docker 镜像，需要 Workers Paid（$5/月）并绑定信用卡——与本次「零绑卡」约束冲突。
+
+功能层面已跑通的部分（都留在 `cloudflare-port` 分支，若将来上限放开可直接复用）：
+Next-in-DO、DO SQLite 门面、上传/下载、Yjs 协作 SSE、中文界面。
+
 ## 待办（按序）
 
 1. **Next-in-DO**：OpenNext 构建产物（.open-next/worker.js）在 DO fetch 里调起；

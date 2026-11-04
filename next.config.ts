@@ -38,7 +38,10 @@ const config: NextConfig = {
   skipTrailingSlashRedirect: true,
   serverExternalPackages: ["node:sqlite", "pdfjs-dist", "tesseract.js"],
   // The PDF text worker loads pdf.js and its worker module at runtime.
-  outputFileTracingIncludes: {
+  // Cloudflare: the Worker bundle has a hard size limit (3 MB zipped on the
+  // free plan) and no filesystem, so the OCR/PDF data files stay out; OCR and
+  // PDF text extraction are switched off there (lib/file-text.ts).
+  outputFileTracingIncludes: process.env.FLOWPLAN_CLOUD_BUILD === "1" ? undefined : {
     "/*": [
       "./node_modules/pdfjs-dist/legacy/build/*.mjs",
       // OCR: worker script, WebAssembly core and bundled language data.
