@@ -121,17 +121,21 @@ export function startBackupWorker() {
     if (runtime.flowplanBackupBusy) return;
     runtime.flowplanBackupBusy = true;
     try {
-      if (backupDue()) {
+      // Workers: the database is the Durable Object's SQLite and the
+      // filesystem parts (VACUUM INTO a file, Markdown/Git export) have no
+      // ground to stand on; Cloudflare keeps the storage durable itself.
+      if (backupDue() && process.env.FLOWPLAN_CLOUD_DB !== "1") {
         await runScheduledBackup();
         // The readable copy (Markdown, optionally into Git) comes along, once
         // a day also with hourly backups.
         const exported = lastMarkdownExport();
-        if (!exported || Date.now() - exported >= DAY_MS - 30 * 60_000)
+        if (process.env.FLOWPLAN_CLOUD_DB !== "1" && (!exported || Date.now() - exported >= DAY_MS - 30 * 60_000))
           await runMarkdownExports().catch((error) => console.error("Markdown export failed", error));
       }
       // The Git export of spaces whose interval has passed, also when
       // backups are off (lib/space-git-export.ts).
-      await runDueSpaceGitExports().catch((error) => console.error("Space Git export failed", error));
+      if (process.env.FLOWPLAN_CLOUD_DB !== "1")
+        await runDueSpaceGitExports().catch((error) => console.error("Space Git export failed", error));
     } catch (error) {
       // Nothing here may become an unhandled rejection of the interval.
       console.error("Scheduled backup check failed", error);
