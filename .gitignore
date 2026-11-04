@@ -13,3 +13,4 @@ extensions/browser/dist/
 .next-dev/
 
 .wrangler/
+.open-next/
